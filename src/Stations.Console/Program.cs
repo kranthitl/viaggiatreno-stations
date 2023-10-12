@@ -17,7 +17,7 @@ var stations = new List<StationDto>();
 foreach (var region in regionProvider.Regions())
 {
     var response = await client.StationsByRegionId(region.Id);
-    stations.AddRange(response.Select(station => new StationDto(region.Id,region.Region,station.CodStazione,station.Localita.NomeBreve,station.Lat,station.Lon)));
+    stations.AddRange(response.Select(station => new StationDto(region.Id,region.Region,station.CodStazione,station.Localita.NomeLungo,station.Lat,station.Lon)));
 }
 
 var stationsProvider = scope.ServiceProvider.GetRequiredService<IStationsProvider>();
